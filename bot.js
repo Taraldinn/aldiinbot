@@ -6,6 +6,17 @@ const PREFIX = "."; // Prefix for bot commands
 
 let timers = {}; // Object to store timers
 
+const token = process.env.BOT_TOKEN;
+
+const client = new Client({ 
+    intents: [
+        Intents.FLAGS.GUILDS,
+        Intents.FLAGS.GUILD_MESSAGES,
+        // Add more intents as needed based on your bot's functionality
+    ]
+});
+
+
 client.on('message', message => {
     if (message.author.bot) return; // Ignore messages from bots
     if (!message.content.startsWith(PREFIX)) return; // Ignore messages without prefix
